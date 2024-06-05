@@ -11,9 +11,26 @@ config_version=5
 [application]
 
 config/name="Mario Clone"
+run/main_scene="res://Scenes/test_level.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=640
+window/size/viewport_height=360
+window/stretch/mode="canvas_items"
 
 [dotnet]
 
 project/assembly_name="Mario Clone"
+
+[layer_names]
+
+2d_physics/layer_1="Ground (Static)"
+2d_physics/layer_2="Dynamic (Moving)"
+2d_physics/layer_3="Hazards"
+
+[rendering]
+
+textures/canvas_textures/default_texture_filter=0
