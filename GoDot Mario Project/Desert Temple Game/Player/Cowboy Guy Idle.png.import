@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dronjmf5s7c2a"
-path="res://.godot/imported/Cowboy Guy Idle.png-a7550b2d60f07a56984e2697f5821160.ctex"
+path="res://.godot/imported/Cowboy Guy Idle.png-202519cfba53025b2a269e72727dea0d.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Player/Cowboy Guy Idle.png"
-dest_files=["res://.godot/imported/Cowboy Guy Idle.png-a7550b2d60f07a56984e2697f5821160.ctex"]
+source_file="res://Desert Temple Game/Player/Cowboy Guy Idle.png"
+dest_files=["res://.godot/imported/Cowboy Guy Idle.png-202519cfba53025b2a269e72727dea0d.ctex"]
 
 [params]
 

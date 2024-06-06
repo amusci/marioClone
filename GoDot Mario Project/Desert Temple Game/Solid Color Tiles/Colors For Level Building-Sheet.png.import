@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://bfah6o85gfnua"
-path="res://.godot/imported/Colors For Level Building-Sheet.png-9d58116efd824b6b253fe55023dba1c3.ctex"
+path="res://.godot/imported/Colors For Level Building-Sheet.png-776f57972dd5da2966d9933017b6fd79.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Solid Color Tiles/Colors For Level Building-Sheet.png"
-dest_files=["res://.godot/imported/Colors For Level Building-Sheet.png-9d58116efd824b6b253fe55023dba1c3.ctex"]
+source_file="res://Desert Temple Game/Solid Color Tiles/Colors For Level Building-Sheet.png"
+dest_files=["res://.godot/imported/Colors For Level Building-Sheet.png-776f57972dd5da2966d9933017b6fd79.ctex"]
 
 [params]
 
