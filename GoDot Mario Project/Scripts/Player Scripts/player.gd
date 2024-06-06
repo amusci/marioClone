@@ -25,6 +25,7 @@ var jump_buffer_counter : float = 0
 var can_control : bool = true
 var is_wall_sliding : bool = false
 var facing_right : bool = false
+var hat_exists : bool = false
 
 # On ready variables
 @onready var sprite_2d = $Sprite2D
@@ -111,14 +112,20 @@ func wall_slide(delta):
 		velocity.y = min(velocity.y, wall_slide_gravity) # Slide down
 	
 func throw_hat():
-	var hat = hat.instantiate() # Add an instance of the hat to our scene (NOT SHOWN)
-	if facing_right: # If we are facing right
-		hat.global_position = global_position + Vector2(hat_distance, 0) # Send hat to the right
-	else:
-		hat.global_position = global_position + Vector2(-hat_distance, 0) # Send hat to the left
-	get_parent().add_child(hat) # Add the hat to our scene tree (SHOWN)
-	
-	
+	if not hat_exists:
+		
+		var hat = hat.instantiate() # Add an instance of the hat to our scene (NOT SHOWN)
+		hat.connect("tree_exited", Callable(self, "_on_hat_removed"))
+		if facing_right: # If we are facing right
+			hat.global_position = global_position + Vector2(hat_distance, 0) # Send hat to the right
+		else:
+			hat.global_position = global_position + Vector2(-hat_distance, 0) # Send hat to the left
+		get_parent().add_child(hat) # Add the hat to our scene tree (SHOWN)
+		hat_exists = true # Platform exists
+		
+func _on_hat_removed():
+	hat_exists = false # Reset flag when platform removed
+
 '''func handle_death() -> void:
 	# Function handles player death
 	print("Player Died!")
