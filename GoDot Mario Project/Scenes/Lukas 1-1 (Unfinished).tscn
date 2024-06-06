@@ -1,9 +1,9 @@
 [gd_scene load_steps=9 format=3 uid="uid://bkj8bg8bay42e"]
 
-[ext_resource type="Texture2D" uid="uid://bfah6o85gfnua" path="res://Solid Color Tiles/Colors For Level Building-Sheet.png" id="1_5cxq3"]
-[ext_resource type="Texture2D" uid="uid://dronjmf5s7c2a" path="res://Player/Cowboy Guy Idle.png" id="2_ua7gi"]
-[ext_resource type="Texture2D" uid="uid://cnp5clsmtxtdo" path="res://Enemies and Interactables/Desert Game - Enemies and Interactables.png" id="2_yvycs"]
-[ext_resource type="Texture2D" uid="uid://hmw4hi2jxssl" path="res://Traps/Desert Game - Traps.png" id="3_45re6"]
+[ext_resource type="Texture2D" uid="uid://bfah6o85gfnua" path="res://Desert Temple Game/Solid Color Tiles/Colors For Level Building-Sheet.png" id="1_5cxq3"]
+[ext_resource type="Texture2D" uid="uid://dronjmf5s7c2a" path="res://Desert Temple Game/Player/Cowboy Guy Idle.png" id="2_ua7gi"]
+[ext_resource type="Texture2D" uid="uid://cnp5clsmtxtdo" path="res://Desert Temple Game/Enemies and Interactables/Desert Game - Enemies and Interactables.png" id="2_yvycs"]
+[ext_resource type="Texture2D" uid="uid://bdxggauclh1k6" path="res://Desert Temple Game/Traps/Desert Game - Traps.png" id="3_45re6"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a4fsf"]
 texture = ExtResource("1_5cxq3")

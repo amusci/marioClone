@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://c1ey7n3tt1dur"
-path="res://.godot/imported/Game Boy Advance - Super Mario Advance 4 Super Mario Bros 3 - Tiles.png-f40df9fa7c0c9baacb3e72b6a4168871.ctex"
+uid="uid://bdxggauclh1k6"
+path="res://.godot/imported/Desert Game - Traps.png-1ce32720a25543f9cf153a75589ff493.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Mario Game Sprites/Stages/Game Boy Advance - Super Mario Advance 4 Super Mario Bros 3 - Tiles.png"
-dest_files=["res://.godot/imported/Game Boy Advance - Super Mario Advance 4 Super Mario Bros 3 - Tiles.png-f40df9fa7c0c9baacb3e72b6a4168871.ctex"]
+source_file="res://Desert Temple Game/Traps/Desert Game - Traps.png"
+dest_files=["res://.godot/imported/Desert Game - Traps.png-1ce32720a25543f9cf153a75589ff493.ctex"]
 
 [params]
 
