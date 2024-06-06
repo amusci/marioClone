@@ -1,6 +1,6 @@
 [gd_scene load_steps=4 format=3 uid="uid://b61wc00t1qo62"]
 
-[ext_resource type="Texture2D" uid="uid://cg1fbhfuj7j67" path="res://Mario Art (NOT FOR GAME)/lukasheehaw.png" id="1_l11an"]
+[ext_resource type="Texture2D" uid="uid://cg1fbhfuj7j67" path="res://Testing Art Only/lukasheehaw.png" id="1_l11an"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xbsg7"]
 texture = ExtResource("1_l11an")

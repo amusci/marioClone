@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8y0h4bef3ss6"]
+
+[ext_resource type="Script" path="res://Scenes/Platforms/temporary_platform.gd" id="1_e8ajq"]
+[ext_resource type="Texture2D" uid="uid://c54lpd1cfrsk0" path="res://Testing Art Only/ground.png" id="1_on88k"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3heul"]
+size = Vector2(80, 13)
+
+[node name="TemporaryPlatform" type="StaticBody2D"]
+script = ExtResource("1_e8ajq")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -0.5)
+shape = SubResource("RectangleShape2D_3heul")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("1_on88k")

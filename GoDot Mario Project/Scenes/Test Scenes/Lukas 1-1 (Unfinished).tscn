@@ -1,12 +1,12 @@
-[gd_scene load_steps=9 format=3 uid="uid://bkj8bg8bay42e"]
+[gd_scene load_steps=9 format=3 uid="uid://ch20r6aoppg1e"]
 
-[ext_resource type="Texture2D" uid="uid://bfah6o85gfnua" path="res://Desert Temple Game/Solid Color Tiles/Colors For Level Building-Sheet.png" id="1_5cxq3"]
-[ext_resource type="Texture2D" uid="uid://dronjmf5s7c2a" path="res://Desert Temple Game/Player/Cowboy Guy Idle.png" id="2_ua7gi"]
-[ext_resource type="Texture2D" uid="uid://cnp5clsmtxtdo" path="res://Desert Temple Game/Enemies and Interactables/Desert Game - Enemies and Interactables.png" id="2_yvycs"]
-[ext_resource type="Texture2D" uid="uid://bdxggauclh1k6" path="res://Desert Temple Game/Traps/Desert Game - Traps.png" id="3_45re6"]
+[ext_resource type="Texture2D" uid="uid://bfah6o85gfnua" path="res://Desert Temple Game/Solid Color Tiles/Colors For Level Building-Sheet.png" id="1_q8d6q"]
+[ext_resource type="Texture2D" uid="uid://cnp5clsmtxtdo" path="res://Desert Temple Game/Enemies and Interactables/Desert Game - Enemies and Interactables.png" id="2_w61yb"]
+[ext_resource type="Texture2D" uid="uid://bdxggauclh1k6" path="res://Desert Temple Game/Traps/Desert Game - Traps.png" id="3_jot3d"]
+[ext_resource type="Texture2D" uid="uid://dronjmf5s7c2a" path="res://Desert Temple Game/Player/Cowboy Guy Idle.png" id="4_ru5uv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_a4fsf"]
-texture = ExtResource("1_5cxq3")
+texture = ExtResource("1_q8d6q")
 0:0/0 = 0
 1:0/0 = 0
 2:0/0 = 0
@@ -16,7 +16,7 @@ texture = ExtResource("1_5cxq3")
 1:2/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_meoto"]
-texture = ExtResource("2_yvycs")
+texture = ExtResource("2_w61yb")
 0:0/0 = 0
 2:0/0 = 0
 2:1/0 = 0
@@ -26,7 +26,7 @@ texture = ExtResource("2_yvycs")
 2:2/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3ckws"]
-texture = ExtResource("3_45re6")
+texture = ExtResource("3_jot3d")
 2:0/0 = 0
 0:1/0 = 0
 1:1/0 = 0
@@ -47,4 +47,4 @@ layer_0/tile_data = PackedInt32Array(65535, 0, 1, 0, 0, 1, 1, 0, 1, 2, 0, 1, 3, 
 
 [node name="CowboyGuyIdle" type="Sprite2D" parent="."]
 position = Vector2(-1, -7)
-texture = ExtResource("2_ua7gi")
+texture = ExtResource("4_ru5uv")
