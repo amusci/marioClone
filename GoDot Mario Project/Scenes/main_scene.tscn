@@ -1,7 +1,11 @@
-[gd_scene load_steps=2 format=3 uid="uid://baji77dv5gejg"]
+[gd_scene load_steps=3 format=3 uid="uid://baji77dv5gejg"]
 
 [ext_resource type="PackedScene" uid="uid://b61wc00t1qo62" path="res://Scenes/test_level.tscn" id="1_dul2k"]
+[ext_resource type="PackedScene" uid="uid://caprm1xcd3w56" path="res://Scenes/player.tscn" id="2_86sv0"]
 
 [node name="Node" type="Node"]
 
 [node name="TestLevel" parent="." instance=ExtResource("1_dul2k")]
+
+[node name="Player" parent="." instance=ExtResource("2_86sv0")]
+position = Vector2(-17, -30)

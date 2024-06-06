@@ -9,6 +9,8 @@ extends CharacterBody2D
 @export var jump_buffer_time : float = 0.2
 @export var gravity_multiplier : float = 3.0
 @export var acceleration : float = 15
+@export var wall_jump_pushoff : float = 300
+@export var wall_slide_gravity : float = 50
 
 # Variables in-house
 var gravity = 980
@@ -17,6 +19,7 @@ var jump_timer : float = 0
 var coyote_counter : float = 0
 var jump_buffer_counter : float = 0
 var can_control : bool = true
+var is_wall_sliding : bool = false
 
 # On ready variables
 @onready var sprite_2d = $Sprite2D
@@ -28,7 +31,8 @@ func _physics_process(delta):
 	# Function called once per physics frame
 	player_jump(delta) # Line 33
 	player_run(delta) # Line 47
-	move_and_slide() # 
+	move_and_slide() # Move and slide
+	wall_slide(delta)
 
 func player_run(delta):
 	var direction = Input.get_axis("move_left", "move_right") # Get left and right inputs
@@ -74,6 +78,27 @@ func player_jump(delta):
 	else:
 		is_jumping = false # End jumping if conditions are not met
 		jump_timer = 0 # Reset jump timer
+	if is_on_wall() and Input.is_action_pressed("move_right") and Input.is_action_just_pressed("jump"): # If holding right and tap jump
+		velocity.y = jump_force * 3 # Jump up
+		velocity.x = -wall_jump_pushoff # Jump towards left
+	if is_on_wall() and Input.is_action_pressed("move_left") and Input.is_action_just_pressed("jump"): # If holding right and tap jump
+		velocity.y = jump_force * 3 # Jump up
+		velocity.x = wall_jump_pushoff # Jump towards right
+		
+		
+func wall_slide(delta):
+	if is_on_wall() and not is_on_floor():
+		if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"):
+			is_wall_sliding = true
+		else:
+			is_wall_sliding = false
+	else:
+		is_wall_sliding = false
+	
+	if is_wall_sliding:
+		velocity.y += (wall_slide_gravity * delta)
+		velocity.y = min(velocity.y, wall_slide_gravity)
+	
 
 '''func handle_death() -> void:
 	# Function handles player death
