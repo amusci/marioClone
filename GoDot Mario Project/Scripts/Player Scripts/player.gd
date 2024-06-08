@@ -28,8 +28,8 @@ var facing_right : bool = false
 var hat_exists : bool = false
 
 # On ready variables
-@onready var sprite_2d = $Sprite2D
-@onready var animation_player = $AnimationPlayer
+@onready var sprite_2d = $AnimatedSprite2D
+@onready var animation_player = $AnimatedSprite2D
 
 func _physics_process(delta):
 	if not can_control: # If we cant control our player, return
@@ -57,7 +57,7 @@ func player_run(delta):
 			facing_right = false
 	else: # If no inputs
 		velocity.x = move_toward(velocity.x, 0, acceleration + 3) # MOVE TO A HALT
-	#player_animations(direction) # Call animations
+	player_animations(direction) # Call animations
 
 func player_jump(delta):
 	# Print debug information
@@ -140,11 +140,12 @@ func _on_hat_removed():
 	visible = true
 	can_control = true'''
 	
-'''func player_animations(direction : float) -> void:
+func player_animations(direction : float) -> void:
 	# Function handles all player animations
 	if abs(direction) > 0.1 and is_on_floor(): # If we are moving and on floor
-		animation_player.play("running") # Running animation
-	elif not is_on_floor(): # If we are in the air
-		animation_player.play("jump") # Jumping animation
+		animation_player.play("player_run") # Running animation
+	# elif not is_on_floor(): # If we are in the air
+		# animation_player.play("jump") # Jumping animation
 	else: 
-		animation_player.play("idle") # Idle animation'''
+		animation_player.play("player_idle") # Idle animation
+
