@@ -1,0 +1,81 @@
+[gd_scene load_steps=12 format=3 uid="uid://btra632s7e01r"]
+
+[ext_resource type="Texture2D" uid="uid://bsv0lwu24gb4v" path="res://Desert Temple Game/Player/Cowboy Guy Idle-sheet.png" id="1_n103w"]
+[ext_resource type="Texture2D" uid="uid://dlv0u1xwvb4xv" path="res://Desert Temple Game/Player/Cowboy Guy Run.png" id="2_x4ti1"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_dxcbl"]
+atlas = ExtResource("1_n103w")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v125j"]
+atlas = ExtResource("1_n103w")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6lu5a"]
+atlas = ExtResource("2_x4ti1")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_1ho6u"]
+atlas = ExtResource("2_x4ti1")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_oq23a"]
+atlas = ExtResource("2_x4ti1")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_r7gp2"]
+atlas = ExtResource("2_x4ti1")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_fxk5e"]
+atlas = ExtResource("2_x4ti1")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6prkj"]
+atlas = ExtResource("2_x4ti1")
+region = Rect2(80, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_25v68"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_dxcbl")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v125j")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 4.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6lu5a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_1ho6u")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_oq23a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_r7gp2")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_fxk5e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6prkj")
+}],
+"loop": true,
+"name": &"Run",
+"speed": 9.0
+}]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(5, -16)
+sprite_frames = SubResource("SpriteFrames_25v68")
+animation = &"Run"
+autoplay = "Idle"
