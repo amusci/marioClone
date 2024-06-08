@@ -9,6 +9,7 @@ size = Vector2(60, 59)
 [node name="Player" type="CharacterBody2D"]
 scale = Vector2(0.5, 0.5)
 script = ExtResource("1_seout")
+hat_distance = 50
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)

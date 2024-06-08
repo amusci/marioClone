@@ -1,6 +1,6 @@
 extends StaticBody2D
 
-@export var lifespan = 5.0 # Time in seconds before the platform disappears
+@export var lifespan = 3.0 # Time in seconds before the platform disappears
 
 func _ready():
 	# Start the timer to remove the platform after the lifespan
