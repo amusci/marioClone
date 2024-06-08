@@ -11,6 +11,10 @@ extends CharacterBody2D
 @export var acceleration : float = 15
 @export var wall_jump_pushoff : float = 300
 @export var wall_slide_gravity : float = 50
+@export var hat_distance : int = 100
+
+# Packed Scenes
+@export var hat : PackedScene = preload("res://Scenes/Platforms/temporary_platform.tscn")
 
 # Variables in-house
 var gravity = 980
@@ -20,6 +24,8 @@ var coyote_counter : float = 0
 var jump_buffer_counter : float = 0
 var can_control : bool = true
 var is_wall_sliding : bool = false
+var facing_right : bool = false
+var hat_exists : bool = false
 
 # On ready variables
 @onready var sprite_2d = $Sprite2D
@@ -32,18 +38,23 @@ func _physics_process(delta):
 	player_jump(delta) # Line 33
 	player_run(delta) # Line 47
 	move_and_slide() # Move and slide
-	wall_slide(delta)
+	wall_slide(delta) # Line 95
+	if Input.is_action_just_pressed("throw_hat"): # If B key pressed
+		throw_hat() # Line 108
+
 
 func player_run(delta):
 	var direction = Input.get_axis("move_left", "move_right") # Get left and right inputs
 
 	if direction != 0: # If inputs exist
 		if direction > 0: # If going right
-			velocity.x = min(velocity.x + acceleration, speed) # Whatver minimum from start acceleration to max speed
-			sprite_2d.flip_h = true 
+			velocity.x = min(velocity.x + acceleration, speed) # Whatever minimum from start acceleration to max speed
+			sprite_2d.flip_h = false # Make sure the sprite is not flipped
+			facing_right = true
 		else: # If going left
 			velocity.x = max(velocity.x - acceleration, -speed) # Whatever maximum (remember going left is negative)
-			sprite_2d.flip_h = false
+			sprite_2d.flip_h = true # Flip the sprite horizontally
+			facing_right = false
 	else: # If no inputs
 		velocity.x = move_toward(velocity.x, 0, acceleration + 3) # MOVE TO A HALT
 	#player_animations(direction) # Call animations
@@ -87,18 +98,33 @@ func player_jump(delta):
 		
 		
 func wall_slide(delta):
-	if is_on_wall() and not is_on_floor():
-		if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"):
-			is_wall_sliding = true
+	# This will handle all player movement against the wall
+	if is_on_wall() and not is_on_floor(): # If on wall in air
+		if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"): # If we want to hug the wall
+			is_wall_sliding = true # Slide down
 		else:
-			is_wall_sliding = false
+			is_wall_sliding = false # We aren't on a wall
 	else:
-		is_wall_sliding = false
+		is_wall_sliding = false # We aren't on a wall
 	
-	if is_wall_sliding:
-		velocity.y += (wall_slide_gravity * delta)
-		velocity.y = min(velocity.y, wall_slide_gravity)
+	if is_wall_sliding: # If we are on a wall
+		velocity.y += (wall_slide_gravity * delta) # Slide down
+		velocity.y = min(velocity.y, wall_slide_gravity) # Slide down
 	
+func throw_hat():
+	if not hat_exists:
+		
+		var hat = hat.instantiate() # Add an instance of the hat to our scene (NOT SHOWN)
+		hat.connect("tree_exited", Callable(self, "_on_hat_removed"))
+		if facing_right: # If we are facing right
+			hat.global_position = global_position + Vector2(hat_distance, 0) # Send hat to the right
+		else:
+			hat.global_position = global_position + Vector2(-hat_distance, 0) # Send hat to the left
+		get_parent().add_child(hat) # Add the hat to our scene tree (SHOWN)
+		hat_exists = true # Platform exists
+		
+func _on_hat_removed():
+	hat_exists = false # Reset flag when platform removed
 
 '''func handle_death() -> void:
 	# Function handles player death
