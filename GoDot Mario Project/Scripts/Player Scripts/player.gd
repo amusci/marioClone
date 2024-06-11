@@ -12,14 +12,14 @@ extends CharacterBody2D
 @export var wall_jump_pushoff : float = 300
 @export var wall_slide_gravity : float = 50
 @export var hat_distance : int = 100
-@export var gravity_jump_increment : float = 15
-@export var gravity_clamp : float = 1300
+@export var gravity_jump_increment : float = 250
+@export var gravity_clamp : float = 1100
 
 # Packed Scenes
 @export var hat : PackedScene = preload("res://Scenes/Platforms/temporary_platform.tscn")
 
 # Variables in-house
-var gravity = 80
+var gravity = 800
 var is_jumping : bool = false
 var jump_timer : float = 0
 var coyote_counter : float = 0
@@ -55,7 +55,6 @@ func _physics_process(delta):
 
 func player_run(delta):
 	var direction = Input.get_axis("move_left", "move_right") # Get left and right inputs
-
 	if direction != 0: # If inputs exist
 		if direction > 0: # If going right
 			velocity.x = min(velocity.x + acceleration, speed) # Whatever minimum from start acceleration to max speed
@@ -79,9 +78,9 @@ func player_jump(delta):
 	# This function handles player's ability to jump
 	if is_on_floor(): # If we are on the floor
 		coyote_counter = coyote_time
-		gravity = 980 # Make sure gravity starts at 980
+		gravity = 800 # Make sure gravity starts at 800
 	else: # If we are jumping/falling
-		gravity += gravity_jump_increment # Increase gravity to give player weight
+		gravity += gravity_jump_increment * delta # Increase gravity to give player weight
 		# Clamp gravity after incrementing
 		if gravity >= gravity_clamp:
 			gravity = gravity_clamp # Clamp gravity to 1300
@@ -89,7 +88,7 @@ func player_jump(delta):
 		coyote_counter -= delta # Decrement Counter
 	
 	if (is_jumping or is_wall_sliding) and velocity.y < .5: # If we are at the apex
-		gravity -= 25 # Remove a bit of gravity to have a floaty apex
+		gravity -= 10 * delta # Remove a bit of gravity to have a floaty apex
 	
 	if Input.is_action_just_pressed("jump"): # This will allow us to jump just before landing
 		jump_buffer_counter = jump_buffer_time # We set the counter to the time we want our character to jump before landing
