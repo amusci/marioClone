@@ -15,6 +15,10 @@ run/main_scene="res://Scenes/main_scene.tscn"
 config/features=PackedStringArray("4.2", "Forward Plus")
 config/icon="res://icon.svg"
 
+[autoload]
+
+TransitionScreen="*res://Desert Temple Game/Scenes/Animations/transition_screen.tscn"
+
 [display]
 
 window/size/viewport_width=640

@@ -159,6 +159,7 @@ sources/0 = SubResource("TileSetAtlasSource_g57f4")
 sources/1 = SubResource("TileSetAtlasSource_gnl4f")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_f0qtg"]
+size = Vector2(20, 33)
 
 [node name="1-1WorldMap" type="Node2D"]
 

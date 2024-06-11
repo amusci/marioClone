@@ -16,8 +16,11 @@ func _on_body_exited(body: PhysicsBody2D): # If player leaves collision radius
 func _physics_process(delta):
 	# This function will handle the scene switching
 	if entered == true: # If flag is true
-		if Input.is_action_just_pressed("player_interact"): # And we press player_interact "e"
+		if Input.is_action_just_pressed("player_interact"):
+			TransitionScreen.transition()
+			await TransitionScreen.on_transition_finished # And we press player_interact "e"
 			get_tree().change_scene_to_file(desired_scene) # Change to desired scene
+			
 
 
 
