@@ -80,7 +80,17 @@ animations = [{
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_seout")
 speed = 200.0
+jump_force = null
+jump_time = null
+coyote_time = null
+jump_buffer_time = null
+gravity_multiplier = null
+acceleration = null
+wall_jump_pushoff = null
+wall_slide_gravity = null
 hat_distance = 50
+gravity_jump_increment = null
+hat = null
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.5, 1.5)
@@ -96,23 +106,6 @@ autoplay = "player_idle"
 frame_progress = 0.610081
 
 [node name="GravityLabel" type="Label" parent="."]
-offset_top = -33.0
-offset_right = 16.0
-offset_bottom = -10.0
-
-[node name="yVelocityLabel" type="Label" parent="."]
-offset_left = 1.0
-offset_top = -47.0
-offset_right = 33.0
-offset_bottom = -24.0
-
-[node name="xVelocityLabel" type="Label" parent="."]
-offset_top = -59.0
-offset_right = 16.0
-offset_bottom = -36.0
-
-[node name="GravityLabel4" type="Label" parent="."]
-visible = false
 offset_top = -33.0
 offset_right = 16.0
 offset_bottom = -10.0
