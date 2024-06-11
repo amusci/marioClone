@@ -1,14 +1,14 @@
-[gd_scene load_steps=4 format=3 uid="uid://lu8dl0hoxo7i"]
+[gd_scene load_steps=4 format=3 uid="uid://c8y0h4bef3ss6"]
 
-[ext_resource type="Script" path="res://Scenes/Platforms/temporary_platform.gd" id="1_unwpg"]
-[ext_resource type="Texture2D" uid="uid://c54lpd1cfrsk0" path="res://Testing Art Only/ground.png" id="2_4ocxc"]
+[ext_resource type="Texture2D" uid="uid://c54lpd1cfrsk0" path="res://Testing Art Only/ground.png" id="1_r5bto"]
+[ext_resource type="Script" path="res://Desert Temple Game/Scenes/Platforms/temporary_platform.gd" id="1_shiou"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_3heul"]
 size = Vector2(24.2208, 4.18122)
 
 [node name="TemporaryPlatform" type="StaticBody2D"]
 scale = Vector2(0.990884, 1.00377)
-script = ExtResource("1_unwpg")
+script = ExtResource("1_shiou")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.0981219)
@@ -16,4 +16,4 @@ shape = SubResource("RectangleShape2D_3heul")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.03, 0.03)
-texture = ExtResource("2_4ocxc")
+texture = ExtResource("1_r5bto")

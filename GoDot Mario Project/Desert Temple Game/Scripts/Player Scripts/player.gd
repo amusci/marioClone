@@ -11,12 +11,12 @@ extends CharacterBody2D
 @export var acceleration : float = 15
 # @export var wall_jump_pushoff : float = 300
 # @export var wall_slide_gravity : float = 50
-@export var hat_distance : int = 100
+@export var hat_distance : int = 50
 @export var gravity_jump_increment : float = 250
 @export var gravity_clamp : float = 1100
 
 # Packed Scenes
-@export var hat : PackedScene = preload("res://Scenes/Platforms/temporary_platform.tscn")
+@export var hat : PackedScene = preload("res://Desert Temple Game/Scenes/Platforms/temporary_platform.tscn")
 
 # Variables in-house
 var gravity = 800
