@@ -79,6 +79,7 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_seout")
+speed = 200.0
 hat_distance = 50
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -93,3 +94,8 @@ sprite_frames = SubResource("SpriteFrames_fe65t")
 animation = &"player_run"
 autoplay = "player_idle"
 frame_progress = 0.610081
+
+[node name="Label" type="Label" parent="."]
+offset_top = -33.0
+offset_right = 16.0
+offset_bottom = -10.0
