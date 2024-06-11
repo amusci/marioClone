@@ -3,14 +3,14 @@ extends CharacterBody2D
 
 # Export variables
 @export var speed = 300.0
-@export var jump_force = -250.0
+@export var jump_force = -200.0
 @export var jump_time : float = 0.2
 @export var coyote_time : float = 0.1
 @export var jump_buffer_time : float = 0.2
 @export var gravity_multiplier : float = 3.0
 @export var acceleration : float = 15
-@export var wall_jump_pushoff : float = 300
-@export var wall_slide_gravity : float = 50
+# @export var wall_jump_pushoff : float = 300
+# @export var wall_slide_gravity : float = 50
 @export var hat_distance : int = 100
 @export var gravity_jump_increment : float = 250
 @export var gravity_clamp : float = 1100
@@ -25,7 +25,7 @@ var jump_timer : float = 0
 var coyote_counter : float = 0
 var jump_buffer_counter : float = 0
 var can_control : bool = true
-var is_wall_sliding : bool = false
+# var is_wall_sliding : bool = false
 var facing_right : bool = false
 var hat_exists : bool = false
 
@@ -48,7 +48,7 @@ func _physics_process(delta):
 	player_jump(delta) # Line 33
 	player_run(delta) # Line 47
 	move_and_slide() # Move and slide
-	wall_slide(delta) # Line 95
+	# wall_slide(delta) # Line 95
 	if Input.is_action_just_pressed("throw_hat"): # If B key pressed
 		throw_hat() # Line 108
 
@@ -87,7 +87,7 @@ func player_jump(delta):
 		velocity.y += gravity * gravity_multiplier * delta # Apply gravity
 		coyote_counter -= delta # Decrement Counter
 	
-	if (is_jumping or is_wall_sliding) and velocity.y < .5: # If we are at the apex
+	if (is_jumping) and velocity.y < .5: # If we are at the apex
 		gravity -= 10 * delta # Remove a bit of gravity to have a floaty apex
 	
 	if Input.is_action_just_pressed("jump"): # This will allow us to jump just before landing
@@ -102,13 +102,14 @@ func player_jump(delta):
 	elif Input.is_action_pressed("jump") and is_jumping: # If we are holding jump while jumping
 		velocity.y = jump_force # Maintain jump force for a higher jump
 	
+	
 	if is_jumping and Input.is_action_pressed("jump") and jump_timer < jump_time: # Handle jump height based on button hold duration
 		jump_timer += delta # Increment jump timer
 	else: # If anything else is happening
 		is_jumping = false # Switch flag back to not jumping
 		jump_timer = 0 # Reset timer since we aren't jumping
 
-	if is_on_wall() and Input.is_action_pressed("move_right") and Input.is_action_just_pressed("jump"): # If holding right and tap jump
+	'''if is_on_wall() and Input.is_action_pressed("move_right") and Input.is_action_just_pressed("jump"): # If holding right and tap jump
 		gravity = 550 # Set gravity to a bit lighter for better feeling walljumps
 		velocity.y = jump_force * 2.5 # Jump up
 		velocity.x = -wall_jump_pushoff # Jump towards left
@@ -128,7 +129,7 @@ func wall_slide(delta):
 	
 	if is_wall_sliding: # If we are on a wall
 		velocity.y += (wall_slide_gravity * delta) # Slide down
-		velocity.y = min(velocity.y, wall_slide_gravity) # Slide down
+		velocity.y = min(velocity.y, wall_slide_gravity) # Slide down'''
 	
 func throw_hat():
 	if not hat_exists:

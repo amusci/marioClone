@@ -253,7 +253,3 @@ position = Vector2(-1, -7)
 
 [node name="Player" parent="." instance=ExtResource("5_0cljy")]
 position = Vector2(13, -17)
-speed = 150.0
-jump_force = -190.0
-wall_jump_pushoff = 250.0
-gravity_clamp = 1000.0

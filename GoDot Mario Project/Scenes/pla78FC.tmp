@@ -96,20 +96,17 @@ autoplay = "player_idle"
 frame_progress = 0.610081
 
 [node name="GravityLabel" type="Label" parent="Player"]
-visible = false
 offset_top = -33.0
 offset_right = 16.0
 offset_bottom = -10.0
 
 [node name="yVelocityLabel" type="Label" parent="Player"]
-visible = false
 offset_left = 1.0
 offset_top = -47.0
 offset_right = 33.0
 offset_bottom = -24.0
 
 [node name="xVelocityLabel" type="Label" parent="Player"]
-visible = false
 offset_top = -59.0
 offset_right = 16.0
 offset_bottom = -36.0
@@ -121,13 +118,8 @@ offset_right = 16.0
 offset_bottom = -10.0
 
 [node name="Anchor" type="Node2D" parent="Player"]
-position = Vector2(1, -18)
 script = ExtResource("4_d3pxr")
 
 [node name="Cam" type="Camera2D" parent="Player/Anchor"]
-position = Vector2(-1, 0)
-zoom = Vector2(1.5, 1.5)
 drag_horizontal_enabled = true
 drag_vertical_enabled = true
-drag_top_margin = 0.1
-drag_bottom_margin = 0.1
