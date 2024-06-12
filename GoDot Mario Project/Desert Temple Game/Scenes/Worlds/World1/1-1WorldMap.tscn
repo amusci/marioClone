@@ -1,12 +1,12 @@
 [gd_scene load_steps=9 format=3 uid="uid://cc3o02ypv1yw4"]
 
-[ext_resource type="Texture2D" uid="uid://biwgmt16huuy1" path="res://Desert Temple Game/Tiles/Sandstone.png" id="1_5plcn"]
-[ext_resource type="Texture2D" uid="uid://bfah6o85gfnua" path="res://Desert Temple Game/Pseudo Tiles/Colors For Level Building-Sheet.png" id="2_rxoud"]
-[ext_resource type="PackedScene" uid="uid://dtpij4bgtvsq7" path="res://Desert Temple Game/Scenes/Player/player.tscn" id="3_w08hs"]
-[ext_resource type="Script" path="res://Desert Temple Game/Scripts/Door Scripts/Door.gd" id="4_5rgxy"]
+[ext_resource type="Texture2D" uid="uid://biwgmt16huuy1" path="res://Desert Temple Game/Tiles/Sandstone.png" id="1_eom0u"]
+[ext_resource type="Texture2D" uid="uid://bfah6o85gfnua" path="res://Desert Temple Game/Pseudo Tiles/Colors For Level Building-Sheet.png" id="2_73frn"]
+[ext_resource type="PackedScene" uid="uid://dtpij4bgtvsq7" path="res://Desert Temple Game/Scenes/Player/player.tscn" id="3_mvelp"]
+[ext_resource type="Script" path="res://Desert Temple Game/Scripts/Door Scripts/Door.gd" id="4_8j22w"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_g57f4"]
-texture = ExtResource("1_5plcn")
+texture = ExtResource("1_eom0u")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -123,7 +123,7 @@ texture = ExtResource("1_5plcn")
 9:5/0/physics_layer_0/angular_velocity = 0.0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gnl4f"]
-texture = ExtResource("2_rxoud")
+texture = ExtResource("2_73frn")
 0:0/0 = 0
 0:0/0/physics_layer_0/linear_velocity = Vector2(0, 0)
 0:0/0/physics_layer_0/angular_velocity = 0.0
@@ -168,10 +168,10 @@ tile_set = SubResource("TileSet_mfd0o")
 format = 2
 layer_0/tile_data = PackedInt32Array(196605, 1, 1, 196606, 1, 1, 196607, 1, 1, 131072, 1, 1, 131073, 1, 1, 131074, 1, 1, 131075, 1, 1, 131076, 1, 1, 131077, 1, 1, 131078, 1, 1, 131079, 1, 1, 131080, 1, 1, 131081, 1, 1, 131082, 1, 1, 131083, 1, 1, 131084, 1, 1, 131085, 1, 1, 131086, 1, 1, 7, 1, 0)
 
-[node name="PlayerRoot" parent="." instance=ExtResource("3_w08hs")]
+[node name="PlayerRoot" parent="." instance=ExtResource("3_mvelp")]
 
 [node name="Area2D" type="Area2D" parent="."]
-script = ExtResource("4_5rgxy")
+script = ExtResource("4_8j22w")
 desired_scene = "res://Desert Temple Game/Scenes/Test Scenes/Lukas 1-1 (Unfinished).tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]

@@ -101,7 +101,7 @@ position = Vector2(17, -26)
 [node name="Area2D2" type="Area2D" parent="."]
 position = Vector2(11, -27)
 script = ExtResource("5_na8ui")
-desired_scene = "res://Desert Temple Game/Scenes/Test Scenes/1-1WorldMap.tscn"
+desired_scene = "res://Desert Temple Game/Scenes/Worlds/World1/1-1WorldMap.tscn"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D2"]
 position = Vector2(-26.5, 11)
