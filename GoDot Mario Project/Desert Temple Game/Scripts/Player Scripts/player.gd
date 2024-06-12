@@ -2,7 +2,7 @@ class_name Player
 extends CharacterBody2D
 
 # Export variables
-@export var speed = 300.0
+@export var speed = 150.0
 @export var jump_force = -200.0
 @export var jump_time : float = 0.2
 @export var coyote_time : float = 0.1
@@ -14,6 +14,7 @@ extends CharacterBody2D
 @export var hat_distance : int = 50
 @export var gravity_jump_increment : float = 250
 @export var gravity_clamp : float = 1100
+@export var climb_speed : float = 150
 
 # Packed Scenes
 @export var hat : PackedScene = preload("res://Desert Temple Game/Scenes/Platforms/temporary_platform.tscn")
@@ -28,6 +29,7 @@ var can_control : bool = true
 # var is_wall_sliding : bool = false
 var facing_right : bool = false
 var hat_exists : bool = false
+var climbing : bool = false
 
 # On ready variables
 @onready var sprite_2d = $AnimatedSprite2D
@@ -51,6 +53,8 @@ func _physics_process(delta):
 	# wall_slide(delta) # Line 95
 	if Input.is_action_just_pressed("throw_hat"): # If B key pressed
 		throw_hat() # Line 108
+	if climbing == true:
+		player_climb(delta)
 
 
 func player_run(delta):
@@ -145,6 +149,37 @@ func throw_hat():
 		
 func _on_hat_removed():
 	hat_exists = false # Reset flag when platform removed
+	
+func player_climb(delta):
+	# Ensure gravity is zero while climbing
+	gravity = 0
+
+	# Check if climbing action is pressed
+	var climb_up_pressed = Input.is_action_pressed("player_climb_up")
+	var climb_down_pressed = Input.is_action_pressed("player_climb_down")
+
+	# Determine vertical velocity based on climb action
+	if climb_up_pressed:
+		velocity.y = -climb_speed  # Climb up
+	elif climb_down_pressed:
+		velocity.y = climb_speed   # Climb downs
+	else:
+		velocity.y = 0             # No vertical movement
+
+
+
+
+		
+func start_climbing():
+	climbing = true
+	velocity = Vector2.ZERO # Stop any horizontal and vertical movement
+
+func stop_climbing():
+	gravity = 800
+	climbing = false
+	velocity = Vector2(0, 0) # Reset vertical velocity
+	
+		
 
 '''func handle_death() -> void:
 	# Function handles player death
