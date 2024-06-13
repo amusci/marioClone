@@ -82,6 +82,7 @@ animations = [{
 
 [node name="Player" type="CharacterBody2D" parent="." groups=["Climber"]]
 script = ExtResource("1_yfnbp")
+climb_speed = 60.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
 position = Vector2(-0.5, 4)

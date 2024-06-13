@@ -14,7 +14,8 @@ extends CharacterBody2D
 @export var hat_distance : int = 50
 @export var gravity_jump_increment : float = 250
 @export var gravity_clamp : float = 1100
-@export var climb_speed : float = 150
+@export var ladder_jump : float = -250
+@export var climb_speed : float = 75
 
 # Packed Scenes
 @export var hat : PackedScene = preload("res://Desert Temple Game/Scenes/Platforms/temporary_platform.tscn")
@@ -56,7 +57,6 @@ func _physics_process(delta):
 	if climbing == true:
 		player_climb(delta)
 
-
 func player_run(delta):
 	var direction = Input.get_axis("move_left", "move_right") # Get left and right inputs
 	if direction != 0: # If inputs exist
@@ -74,10 +74,11 @@ func player_run(delta):
 
 func player_jump(delta):
 	# Print debug information
-	print("is_on_floor: ", is_on_floor())
+	'''print("is_on_floor: ", is_on_floor())
 	print("is_jumping: ", is_jumping)
 	print("coyote_counter: ", coyote_counter)
-	print("jump_timer: ", jump_timer)
+	print("jump_timer: ", jump_timer)'''
+	print("climbing:", climbing)
 	
 	# This function handles player's ability to jump
 	if is_on_floor(): # If we are on the floor
@@ -112,6 +113,7 @@ func player_jump(delta):
 	else: # If anything else is happening
 		is_jumping = false # Switch flag back to not jumping
 		jump_timer = 0 # Reset timer since we aren't jumping
+
 
 	'''if is_on_wall() and Input.is_action_pressed("move_right") and Input.is_action_just_pressed("jump"): # If holding right and tap jump
 		gravity = 550 # Set gravity to a bit lighter for better feeling walljumps
@@ -153,29 +155,26 @@ func _on_hat_removed():
 func player_climb(delta):
 	# Ensure gravity is zero while climbing
 	gravity = 0
-
-	# Check if climbing action is pressed
-	var climb_up_pressed = Input.is_action_pressed("player_climb_up")
-	var climb_down_pressed = Input.is_action_pressed("player_climb_down")
-
+	velocity.x = 0
 	# Determine vertical velocity based on climb action
-	if climb_up_pressed:
+	if Input.is_action_pressed("player_climb_up"):
 		velocity.y = -climb_speed  # Climb up
-	elif climb_down_pressed:
-		velocity.y = climb_speed   # Climb downs
+	elif Input.is_action_pressed("player_climb_down"):
+		velocity.y = climb_speed   # Climb down
+	elif Input.is_action_just_pressed("jump"):
+		velocity.y = ladder_jump # Apply ladder jump
+		climbing = false # Exit climbing state
+		gravity += gravity_jump_increment# Allow gravity
 	else:
-		velocity.y = 0             # No vertical movement
+		velocity.y = 0 # No vertical movement
+	move_and_slide() # Apply vertical movement
 
-
-
-
-		
 func start_climbing():
 	climbing = true
 	velocity = Vector2.ZERO # Stop any horizontal and vertical movement
 
 func stop_climbing():
-	gravity = 800
+	gravity += gravity_jump_increment
 	climbing = false
 	velocity = Vector2(0, 0) # Reset vertical velocity
 	

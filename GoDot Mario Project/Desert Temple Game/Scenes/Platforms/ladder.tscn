@@ -4,9 +4,10 @@
 [ext_resource type="Texture2D" uid="uid://c54lpd1cfrsk0" path="res://Testing Art Only/ground.png" id="2_n1h48"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wwg26"]
-size = Vector2(20, 163)
+size = Vector2(20, 160)
 
 [node name="Ladder" type="Area2D"]
+z_index = -1
 script = ExtResource("1_ud0t7")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -15,7 +16,7 @@ scale = Vector2(0.02625, 1.07516)
 texture = ExtResource("2_n1h48")
 
 [node name="LadderCollision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 73.5)
+position = Vector2(0, 75)
 shape = SubResource("RectangleShape2D_wwg26")
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]
