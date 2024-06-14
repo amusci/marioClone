@@ -78,7 +78,7 @@ func player_jump(delta):
 	print("is_jumping: ", is_jumping)
 	print("coyote_counter: ", coyote_counter)
 	print("jump_timer: ", jump_timer)'''
-	print("climbing:", climbing)
+	# print("climbing:", climbing)
 	
 	# This function handles player's ability to jump
 	if is_on_floor(): # If we are on the floor
@@ -194,6 +194,11 @@ func stop_climbing():
 	visible = true
 	can_control = true'''
 	
+func _input(event : InputEvent):
+	if (event.is_action_pressed("player_drop") and is_on_floor()):
+		position.y += 1
+		
+		
 func player_animations(direction : float) -> void:
 	# Function handles all player animations
 	if abs(direction) > 0.1 and is_on_floor(): # If we are moving and on floor
