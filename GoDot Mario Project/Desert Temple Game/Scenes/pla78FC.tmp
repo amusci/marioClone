@@ -1,0 +1,126 @@
+[gd_scene load_steps=15 format=3 uid="uid://caprm1xcd3w56"]
+
+[ext_resource type="Script" path="res://Scripts/Player Scripts/player.gd" id="1_seout"]
+[ext_resource type="Texture2D" uid="uid://bsv0lwu24gb4v" path="res://Desert Temple Game/Player/Cowboy Guy Idle-sheet.png" id="2_6m115"]
+[ext_resource type="Texture2D" uid="uid://dlv0u1xwvb4xv" path="res://Desert Temple Game/Player/Cowboy Guy Run.png" id="3_pqaen"]
+[ext_resource type="Script" path="res://Scenes/Anchor.gd" id="4_d3pxr"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_d45ve"]
+radius = 6.0
+height = 24.0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_s1yl1"]
+atlas = ExtResource("2_6m115")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bvvpv"]
+atlas = ExtResource("2_6m115")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pu56e"]
+atlas = ExtResource("3_pqaen")
+region = Rect2(0, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_th5fh"]
+atlas = ExtResource("3_pqaen")
+region = Rect2(16, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rmrpg"]
+atlas = ExtResource("3_pqaen")
+region = Rect2(32, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_evkv3"]
+atlas = ExtResource("3_pqaen")
+region = Rect2(48, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_aof4o"]
+atlas = ExtResource("3_pqaen")
+region = Rect2(64, 0, 16, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_57fxo"]
+atlas = ExtResource("3_pqaen")
+region = Rect2(80, 0, 16, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_fe65t"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_s1yl1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bvvpv")
+}],
+"loop": true,
+"name": &"player_idle",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pu56e")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_th5fh")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rmrpg")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_evkv3")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_aof4o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_57fxo")
+}],
+"loop": true,
+"name": &"player_run",
+"speed": 10.0
+}]
+
+[node name="PlayerRoot" type="Node2D"]
+
+[node name="Player" type="CharacterBody2D" parent="."]
+script = ExtResource("1_seout")
+speed = 200.0
+hat_distance = 50
+gravity_clamp = 1000.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Player"]
+position = Vector2(-0.5, 4)
+shape = SubResource("CapsuleShape2D_d45ve")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Player"]
+sprite_frames = SubResource("SpriteFrames_fe65t")
+animation = &"player_run"
+autoplay = "player_idle"
+frame_progress = 0.610081
+
+[node name="GravityLabel" type="Label" parent="Player"]
+offset_top = -33.0
+offset_right = 16.0
+offset_bottom = -10.0
+
+[node name="yVelocityLabel" type="Label" parent="Player"]
+offset_left = 1.0
+offset_top = -47.0
+offset_right = 33.0
+offset_bottom = -24.0
+
+[node name="xVelocityLabel" type="Label" parent="Player"]
+offset_top = -59.0
+offset_right = 16.0
+offset_bottom = -36.0
+
+[node name="GravityLabel4" type="Label" parent="Player"]
+visible = false
+offset_top = -33.0
+offset_right = 16.0
+offset_bottom = -10.0
+
+[node name="Anchor" type="Node2D" parent="Player"]
+script = ExtResource("4_d3pxr")
+
+[node name="Cam" type="Camera2D" parent="Player/Anchor"]
+drag_horizontal_enabled = true
+drag_vertical_enabled = true

@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://cs6aniim5iij8"]
+
+[ext_resource type="Texture2D" uid="uid://d3byoq567con7" path="res://Desert Temple Game/Pseudo Tiles/onewaytest.png" id="1_nl56c"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yo26v"]
+size = Vector2(16, 16)
+
+[node name="Sprite2D" type="Sprite2D"]
+position = Vector2(65, 165)
+scale = Vector2(1.01546, 0.32)
+texture = ExtResource("1_nl56c")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource("RectangleShape2D_yo26v")
+one_way_collision = true
