@@ -81,6 +81,7 @@ animations = [{
 script = ExtResource("1_seout")
 speed = 200.0
 hat_distance = 50
+gravity_clamp = 1000.0
 
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(1.5, 1.5)
